@@ -7,9 +7,9 @@ const Search = ({list,searched}) => {
      let searchResults;
      setUserInput(word);
      console.log(word)
-     if (word.length > 0)
+     if(word.length>0)
        searchResults = list.filter((list) => list.name.toLowerCase().includes(word)
-     
+      
      );
      console.log(searchResults)
      searched(searchResults);
