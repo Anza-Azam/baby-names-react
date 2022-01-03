@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+li{list-style-type: none;
+padding :5px;
+}
+
+ul{display: flex;
+flex-wrap: wrap;
+
+padding:5px;}
+
+h1{margin: 10px;
+
+padding:50px;}
+
+.boy{background-color:khaki;}
+.girl{background-color: darkseagreen;}
+
+p{padding:3px 20px 0px 30px;}
+
+.containerwrapper{
+
+  display:flex;
+  width:70%;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-direction:column;
+}
