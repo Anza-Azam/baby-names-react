@@ -3,8 +3,9 @@ import Names from './Names.js'
 
 
 
-const NameList = ({list,favorite}) => {
-let nameList = list.sort((a, b) => a.name.localeCompare(b.name));
+const NameList = ({ list, favorite, faveNameList}) => {
+  let nameList= list.filter(names=>!(faveNameList.includes(names)))
+ let nameListresult = nameList.sort((a, b) => a.name.localeCompare(b.name));
     //console.log(list)
 
     return (
@@ -12,7 +13,7 @@ let nameList = list.sort((a, b) => a.name.localeCompare(b.name));
         {" "}
        
         <ul className="shadow-lg p-3 mb-5 bg-body rounded">
-          {[...nameList].map((el) => (
+          {[...nameListresult].map((el) => (
             <Names favorite={(s)=>favorite(s)}key={el.id} name={el} />
           ))}
         </ul>{" "}

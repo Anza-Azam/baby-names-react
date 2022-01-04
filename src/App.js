@@ -10,7 +10,7 @@ import Favorites from './components/Favorites';
 
 function App() {
   const [namesList, setNamesList] = useState(names);
-  const [faveName, setFaveName] = useState('');
+  const [faveName, setFaveName] = useState(false);
 const [faveNameList, setFaveNameList] = useState([]);  
   const handleInput = (searchresults) => {
     setNamesList(searchresults)
@@ -24,10 +24,12 @@ const [faveNameList, setFaveNameList] = useState([]);
     setNamesList(namesList)
 
   }
-  const removeFavorite = (id) => {
+  const removeFavorite = (fav) => {
     
-setNamesList(namesList.concat(id));
-
+    setNamesList(namesList.concat(fav));
+    let id = faveNameList.findIndex((list) => list.id === fav.id);
+    let deleted = faveNameList.splice(id, 1);
+setFaveNameList(faveNameList);
   }
   if(!namesList)
         setNamesList(names)
@@ -37,7 +39,7 @@ setNamesList(namesList.concat(id));
       <Header />
       <Search list={namesList} searched={(searchresults) => handleInput(searchresults)} />
       <Favorites list={faveNameList} changeList={(id)=>removeFavorite(id)}/>
-      <NameList list={namesList} favorite={(fav)=>handlefavnames(fav)}/>
+      <NameList list={namesList} favorite={(fav) => handlefavnames(fav)} faveNameList={faveNameList}/>
 
     </div>
   );
