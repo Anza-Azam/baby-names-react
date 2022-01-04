@@ -19,7 +19,14 @@ const [faveNameList, setFaveNameList] = useState([]);
 
   const handlefavnames=(fav) => {
     setFaveNameList(faveNameList.concat(fav))
-     setNamesList(namesList.filter(list=>list.id!==fav.id))
+    let id = (namesList.findIndex(list => list.id === fav.id))
+    let deleted= (namesList.splice(id, 1))
+    setNamesList(namesList)
+
+  }
+  const removeFavorite = (id) => {
+    
+setNamesList(namesList.concat(id));
 
   }
   if(!namesList)
@@ -29,7 +36,7 @@ const [faveNameList, setFaveNameList] = useState([]);
     <div className="container-fluid">    
       <Header />
       <Search list={namesList} searched={(searchresults) => handleInput(searchresults)} />
-      <Favorites list={faveNameList}/>
+      <Favorites list={faveNameList} changeList={(id)=>removeFavorite(id)}/>
       <NameList list={namesList} favorite={(fav)=>handlefavnames(fav)}/>
 
     </div>
