@@ -3,7 +3,7 @@ import { useState} from "react"
 import Header from "./components/Header.js"
 import NameList from "./components/NameList.js"
 const names=require('./babyNamesData.json')
-
+import Selection from './components/Selection.js'
 import "./App.css";
 import Search from "./components/Search";
 import Favorites from './components/Favorites';
@@ -16,7 +16,10 @@ const [faveNameList, setFaveNameList] = useState([]);
     setNamesList(searchresults)
  
   }
-
+  const changeGender = (fav) => {
+    
+    setNamesList(fav)
+  }
   const handlefavnames=(fav) => {
     setFaveNameList(faveNameList.concat(fav))
     let id = (namesList.findIndex(list => list.id === fav.id))
@@ -38,7 +41,8 @@ setFaveNameList(faveNameList);
     <div className="container-fluid">    
       <Header />
       <Search list={namesList} searched={(searchresults) => handleInput(searchresults)} />
-      <Favorites list={faveNameList} changeList={(id)=>removeFavorite(id)}/>
+      <Favorites list={faveNameList} changeList={(id) => removeFavorite(id)} />
+      <Selection list={namesList} changeGender={(fav)=>changeGender(fav)} />
       <NameList list={namesList} favorite={(fav) => handlefavnames(fav)} faveNameList={faveNameList}/>
 
     </div>
