@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import FaveName from './FaveName.js'
 const Favorites = ({ list, changeList}) => {
     
  
@@ -7,16 +7,7 @@ const Favorites = ({ list, changeList}) => {
       <div>
         <p className="fs-1 px-5 mx-5 form-control-lg"> Favorite Names </p>
         <ul className="shadow-lg p-3 mb-5 bg-success rounded-3">
-          {list.map((el) => (
-            <li key={el.id}>
-              <p
-                onClick={() => changeList(el)}
-                className={`rounded-pill fs-1 ${el.sex === "m" ? "boy" : "girl"}`}
-              >
-                {el.name}
-              </p>
-            </li>
-          ))}
+          {list.map((el) => <FaveName name={el} func={changeList} key={el.id}/>) }
         </ul>
       </div>
     );

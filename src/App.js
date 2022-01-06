@@ -16,6 +16,10 @@ const [faveNameList, setFaveNameList] = useState([]);
     setNamesList(searchresults)
  
   }
+
+  const allNames = (namelist)=> {
+    setNamesList(namelist)
+  }
   const changeGender = (fav) => {
     
     setNamesList(fav)
@@ -42,7 +46,7 @@ setFaveNameList(faveNameList);
       <Header />
       <Search list={namesList} searched={(searchresults) => handleInput(searchresults)} />
       <Favorites list={faveNameList} changeList={(id) => removeFavorite(id)} />
-      <Selection list={namesList} changeGender={(fav)=>changeGender(fav)} />
+      <Selection list={names.filter(el=>!faveNameList.includes(el))} changeGender={(fav) => changeGender(fav)} handlenames={(namelist)=>allNames(namelist)} />
       <NameList list={namesList} favorite={(fav) => handlefavnames(fav)} faveNameList={faveNameList}/>
 
     </div>
