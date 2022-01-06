@@ -1,6 +1,6 @@
 import { useState} from 'react'
-const Selection = ({ list, changeGender,handlenames }) => {
-    const [names, setNames ]= useState(list)
+const Selection = ({ list, changeGender }) => {
+  //  const [names, setNames ]= useState(list)
     
     const showGirlNames = () => {
       
@@ -18,9 +18,9 @@ const Selection = ({ list, changeGender,handlenames }) => {
     };
 
     const handle= () => {
-      let name =list;
+      //let name =list;
       //  setNames(boyNames)
-      return changeGender(name);
+      return changeGender(list);
     };
     return (
         <div className="d-flex justify-content-center">

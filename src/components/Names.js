@@ -1,7 +1,8 @@
-const Names = ({name,favorite}) => {
-  const handleFavorite = () => {
 
-favorite(name)
+const Names = ({name,fav}) => {
+  const handleFavorite = () => {
+    console.log('hi')
+return fav(name)
 
    }
 let sex=name.sex

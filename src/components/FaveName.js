@@ -1,16 +1,16 @@
 
-const FaveName = ({name,func}) => {
+const FaveName = ({name,clickfunc}) => {
 
-
-return(
-    <li>
-        <p
-            onClick={() => func(name)}
-            className={`rounded-pill fs-1 ${name.sex === "m" ? "boy" : "girl"}`}
-        >
-            {name.name}
-        </p>
-    </li>);
+return (
+    <li key={name.id}>
+    <p
+      className={`rounded-pill fs-1 ${name.sex === "m" ? "boy" : "girl"}`}
+      onClick={() => clickfunc(name)}
+    >
+      {name.name}
+    </p>
+  </li>
+);
 }
 
 export default FaveName

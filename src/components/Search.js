@@ -11,7 +11,7 @@ const Search = ({list,searched}) => {
        searchResults = list.filter((list) => list.name.toLowerCase().includes(word)
       
      );
-     console.log(searchResults)
+     
      searched(searchResults);
    };
 
