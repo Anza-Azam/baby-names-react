@@ -1,5 +1,7 @@
 import {useState} from "react"
-const Search = ({list,searched}) => {
+const Search = ({list, searched}) => {
+  
+
    const [userInput, setUserInput] = useState("");
    
    const handleChange = (e) => {

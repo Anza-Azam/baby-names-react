@@ -1,26 +1,28 @@
 import { useState} from 'react'
-const Selection = ({ list, changeGender }) => {
+const Selection = ({list, change ,faveNameList}) => {
+    
+    let nameList = list.filter((names) => !faveNameList.includes(names));
   //  const [names, setNames ]= useState(list)
     
     const showGirlNames = () => {
       
-        let girlNames = list.filter(names => names.sex === "f")
-       // setNames(girlNames)
-            return changeGender(girlNames) 
+        let girlNames = nameList.filter(names => names.sex === "f")
+      
+            return change(girlNames) 
     }
     
     const showBoysNames = () => {
        
-        let boyNames = list.filter((names) => names.sex === "m");
-      //  setNames(boyNames)
-        return changeGender(boyNames);
+        let boyNames = nameList.filter((names) => names.sex === "m");
+     
+        return change(boyNames);
         
     };
 
     const handle= () => {
       //let name =list;
       //  setNames(boyNames)
-      return changeGender(list);
+      return change(nameList);
     };
     return (
         <div className="d-flex justify-content-center">
