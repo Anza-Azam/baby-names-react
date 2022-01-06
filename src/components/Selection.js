@@ -6,23 +6,25 @@ const Selection = ({list, change ,faveNameList}) => {
     
     const showGirlNames = () => {
       
-        let girlNames = nameList.filter(names => names.sex === "f")
+      let girlNames = nameList.filter(names => names.sex === "f")
+      let favgirl=faveNameList.filter(names=>names.sex==='f')
       
-            return change(girlNames) 
+            return change(girlNames,favgirl) 
     }
     
     const showBoysNames = () => {
        
-        let boyNames = nameList.filter((names) => names.sex === "m");
+      let boyNames = nameList.filter((names) => names.sex === "m");
+      let favboy = faveNameList.filter((names) => names.sex === "m");
      
-        return change(boyNames);
+        return change(boyNames,favboy);
         
     };
 
     const handle= () => {
       //let name =list;
       //  setNames(boyNames)
-      return change(nameList);
+      return change(nameList,faveNameList);
     };
     return (
         <div className="d-flex justify-content-center">

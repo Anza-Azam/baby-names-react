@@ -63,3 +63,10 @@ p{padding:3px 20px 0px 30px;}
   align-content: center;
   flex-direction:column;
 }
+
+button:hover{
+
+  background-color: deepskyblue;
+  font-weight: bolder;
+  font-size: larger;
+}
