@@ -27,13 +27,13 @@ function App() {
     setNamesList([...namesList].filter((name) => name.id !== fav.id));
   };
   const removeFavorite = (fav) => {
-    setNewFavList([...newfavlist].filter(name => name.id !== fav.id));
-    setNamesList(namesList.filter(name => name.id !== fav.id).concat(fav));
-    
-    setFaveNameList([...faveNameList].filter(name => name.id !== fav.id));
+    setNewFavList([...newfavlist].filter((name) => name.id !== fav.id));
+    setNamesList(namesList.filter((name) => name.id !== fav.id).concat(fav));
+    setFaveNameList([...faveNameList].filter((name) => name.id !== fav.id));
   };
-  if(!namesList)
-        setNamesList(names)
+  if (!namesList) {
+    setNamesList(names);
+  }
   return (
     <div className="container-fluid">
       <Header />
